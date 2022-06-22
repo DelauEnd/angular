@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OrderDto } from 'src/app/shared/interfaces/responseInterfaces';
 import { OrderService } from 'src/app/shared/services/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-list',
@@ -13,7 +14,7 @@ export class OrderListComponent implements OnInit {
   orders: OrderDto[] = [];
   readSub: Subscription = new Subscription;
 
-  constructor(private order: OrderService) { }
+  constructor(private order: OrderService, public router: Router) { }
 
   ngOnInit(): void {
     this.readSub = this.order.getAllOrders().subscribe(

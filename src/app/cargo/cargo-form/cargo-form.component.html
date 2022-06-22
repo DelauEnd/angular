@@ -1,0 +1,51 @@
+<div class="modal-body">
+    <form class="form-group" [formGroup]="cargoForm">
+        <div>
+          <p class="text h4">Title</p>
+            <input class="form-control" formControlName="title" type="text" placeholder="Input cargo title here">
+          <p class="text-danger" *ngIf="isControlValid('title')">Title is required</p>
+        </div>
+        <hr>
+        <div>
+          <p class="text h4">Category</p>
+          <select class="form-control" formControlName="category">
+            <option  *ngFor="let item of categories" [ngValue]="item" >{{item.title}}</option>
+          </select>
+          <p class="text-danger" *ngIf="isControlValid('category')">Category is required</p>
+        </div>
+        <hr>
+        <div>
+            <p class="text h4">Departure date</p>
+            <input class="form-control" formControlName="departureDate" type="text" placeholder="MM/dd/YYYY">
+          <p class="text-danger" *ngIf="isControlValid('departureDate')">Incorrect date state, try MM/dd/YYYY format</p>
+        </div>
+        <hr>
+        <div>
+            <p class="text h4">Dimensions</p>
+            <div class="center-block">
+                <input class="form-control form-inline" style="max-width: 32%; display: inline; margin: 0.65%;" formControlName="height" type="text" placeholder="height">
+                <input class="form-control form-inline" style="max-width: 32%; display: inline; margin: 0.65%;" formControlName="length" type="text" placeholder="length">
+                <input class="form-control form-inline" style="max-width: 32%; display: inline; margin: 0.65%;" formControlName="width" type="text" placeholder="width">
+            </div>
+            <p class="text-danger" *ngIf="isControlValid('height'); else incorrectLength">Incorrect height</p>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+<ng-template #incorrectLength>
+    <p class="text-danger" *ngIf="isControlValid('length'); else incorrectWidth">Incorrect length</p>
+</ng-template>
+
+<ng-template #incorrectWidth>
+    <p class="text-danger" *ngIf="isControlValid('width');">Incorrect width</p>
+</ng-template>
+
+<script>
+    $('#cargoModal').on('hidden.bs.modal', function (e) {
+        this.clearForm();
+    })
+</script>
