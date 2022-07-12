@@ -28,3 +28,13 @@ export interface CargoCategoryDto{
     id: number;
     title: string;
 }
+
+export interface AuthenticatedUserInfo{
+    accessToken: string,
+    refreshToken: string
+}
+
+export interface AccessTokenInfo{
+    exp: number;
+    role: Array<string>;
+}

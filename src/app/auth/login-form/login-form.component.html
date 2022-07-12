@@ -1,0 +1,23 @@
+<form class="form-group m-2" [formGroup]="loginForm">
+    <div>
+        <div>
+            <p class="text h6">Login</p>
+            <input class="form-control" formControlName="login" type="text" placeholder="Input login here">       
+            <p class="text-danger" *ngIf="isControlValid('login')">Address is required</p>
+        </div>
+        <div>
+            <p class="text h6">Password</p>
+            <input class="form-control" formControlName="password" type="password" placeholder="Input Password here">       
+            <p class="text-danger" *ngIf="isControlValid('password')">Password is required</p>
+        </div>
+        <div class="float-left">
+            
+            <button type="button" class="btn btn-primary" style="margin-top: 5px;" data-dismiss="modal" [ngClass]="{'disabled': !isFormValid()}" [disabled]="!isFormValid()" (click)="login()">Login</button><br>
+            
+            <p class="text-danger" *ngIf="loginFailed">
+                Incorrect username of password
+                <a href="#">Create account</a>
+            </p>
+        </div>
+    </div>
+</form>

@@ -1,21 +1,15 @@
-<div class="header" style="background-color: firebrick; height: 50px;" >
-  <p class="text h2 text-center" style="color:aliceblue; margin: 0% !important; text-align: center;
-  line-height: 50px;">ANGULAR</p>
+<div class="header bg-danger" style="height: 50px;" >
+  <div style="text-align: center">
+    <a class="text h2" href="#" style="color:aliceblue; margin: 0% !important; line-height: 50px;">ANGULAR</a>
+  </div>
 </div>
 <div>
-  <ul class="nav nav-justified"  style="min-height: 39px;">
-    <li class="nav-tabs h4">
-      <a class="navbar-link" href="#">HOME</a>
-    </li>
-    <li class="nav-tabs h4">
-      <a class="navbar-link" href="orders">ORDERS</a>
-    </li>
-    <li class="nav-tabs h4">
-      <a class="navbar-link" href="#">ACTIVE</a>
-    </li>
+  <ul class="nav nav-tabs nav-fill">
+    <li class="nav-item">
+      <a class="nav-link h5" routerLinkActive="active" routerLink="customers">CUSTOMERS</a>
+    </li>  
   </ul>
 </div>
-
 
 <div class="container">
     <router-outlet></router-outlet>

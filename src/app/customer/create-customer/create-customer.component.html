@@ -1,0 +1,38 @@
+<app-modal [id]='"createModalId"'  header="ADD CUSTOMER">
+    <form class="form-group" [formGroup]="customerCreateForm">
+        <div>
+            <div>
+                <p class="text h6">Address</p>
+                <input class="form-control" formControlName="address" type="text" placeholder="Input address here">       
+                <p class="text-danger" *ngIf="isControlValid('address')">Address is required</p>
+            </div>
+            <hr>
+            <p class="text h5">CONTACT PERSON</p>
+            <div>
+                <p class="text h6">Surname</p>
+                <input class="form-control" formControlName="surname" type="text" placeholder="Input surname here">       
+                <p class="text-danger" *ngIf="isControlValid('surname')">Surname is required</p>
+            </div>
+            <div>
+                <p class="text h6">Name</p>
+                <input class="form-control" formControlName="name" type="text" placeholder="Input name here">         
+                <p class="text-danger" *ngIf="isControlValid('name')">Name is required</p>
+            </div>
+            <div>
+                <p class="text h6">Patronymic</p>
+                <input class="form-control" formControlName="patronymic" type="text" placeholder="Input patronymic here">
+                <p class="text-danger" *ngIf="isControlValid('patronymic')">Patronymic is required</p>
+            </div>
+            <div>
+                <p class="text h6">Phone number</p>
+                <input class="form-control" formControlName="phone" type="text" placeholder="Input phone number here">
+                <p class="text-danger" *ngIf="isControlValid('phone')">Typed phone number is invalid</p>
+            </div>
+            <hr>
+            <div class="float-right">
+                <button type="button" class="btn btn-secondary m-1" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary m-1" data-dismiss="modal" [ngClass]="{'disabled': !isFormValid()}" [disabled]="!isFormValid()" (click)="createCustomer()">Confirm</button>
+            </div>
+        </div>
+    </form>
+</app-modal>

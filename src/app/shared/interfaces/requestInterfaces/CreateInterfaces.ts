@@ -1,14 +1,12 @@
-import { Dimensions } from "../sharedInterface";
+import { Dimensions, Person } from "../sharedInterface";
 
-export interface OrderForCreationDto
-{
+export interface OrderForCreationDto{
     senderId: number;
     destinationId: number;
     cargoes: CargoForCreationDto[]
 }
 
-export interface CargoForCreationDto
-{
+export interface CargoForCreationDto{
     title: string;
     categoryId: number;
     departureDate: Date;
@@ -16,4 +14,9 @@ export interface CargoForCreationDto
     weight: number;
     dimensions: Dimensions;
     image: number[];
+}
+
+export interface CustomerForCreationDto{
+    address: string;
+    contactPerson: Person;
 }
